@@ -20,7 +20,7 @@ private:
 
     sf::Texture m_texture;
     int m_w, m_n, m_x, m_y, m_dx, m_dy;
-    std::array<std::array<int, 6>, 6> grid;
+    std::array<std::array<int, 6>, 6> m_grid;
     sf::Sprite m_sprite;
 };
 
