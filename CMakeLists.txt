@@ -13,6 +13,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(puzzle main.cpp)
 
+set(ASSETS
+    "assets/puzzle.png"
+    "assets/tr.png"
+)
+
+foreach(RESOURCE ${ASSETS})
+    configure_file(${CMAKE_SOURCE_DIR}/${RESOURCE} ${CMAKE_BINARY_DIR}/${RESOURCE} COPYONLY)
+endforeach()
+
 include(GNUInstallDirs)
 install(TARGETS puzzle
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
