@@ -35,5 +35,7 @@ void Puzzle::events()
 
 void Puzzle::draw()
 {
-
+    m_window->clear(sf::Color::Black);
+    m_window->draw(m_sprite);
+    m_window->display();
 }
