@@ -21,7 +21,10 @@ Puzzle::Puzzle() :
 
 void Puzzle::run()
 {
-
+    while (m_window->isOpen()) {
+        events();
+        draw();
+    }
 }
 
 void Puzzle::events()
