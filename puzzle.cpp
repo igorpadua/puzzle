@@ -26,7 +26,11 @@ void Puzzle::run()
 
 void Puzzle::events()
 {
-
+    while (m_window->pollEvent(*m_event)) {
+        if (m_event->type == sf::Event::Closed) {
+            m_window->close();
+        }
+    }
 }
 
 void Puzzle::draw()
