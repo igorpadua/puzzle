@@ -16,7 +16,14 @@ Puzzle::Puzzle() :
 
     m_texture.loadFromFile("./assets/puzzle.png");
 
-    m_sprite.setTexture(m_texture);
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            ++m_n;
+            m_sprites[m_n].setTexture(m_texture);
+            m_sprites[m_n].setTextureRect(sf::IntRect(j * m_w, i * m_w, m_w, m_w));
+            m_grid[i + 1][j + 1] = m_n;
+        }
+    }
 }
 
 void Puzzle::run()
@@ -33,12 +40,22 @@ void Puzzle::events()
         if (m_event->type == sf::Event::Closed) {
             m_window->close();
         }
+
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+
+        }
     }
 }
 
 void Puzzle::draw()
 {
     m_window->clear(sf::Color::Black);
-    m_window->draw(m_sprite);
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            m_n = m_grid[i + 1][j + 1];
+            m_sprites[m_n].setPosition(i * m_w, j * m_w);
+            m_window->draw(m_sprites[m_n]);
+        }
+    }
     m_window->display();
 }
