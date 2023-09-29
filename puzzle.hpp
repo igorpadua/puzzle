@@ -7,8 +7,9 @@
 class Puzzle
 {
 public:
-    Puzzle();
+    Puzzle(const std::vector<int>& nums);
     void run();
+    void logic();
 
 protected:
     void events();
